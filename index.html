@@ -3,85 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Únete al Canal de Telegram</title>
+    <title>Formulario en Pantalla Completa</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            background-color: #000;
         }
-        .venta {
-            background-color: white; /* Fondo blanco */
-            border: 4px solid #ed7318; /* Marco más grueso y color naranja */
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 600px; /* Ajuste del tamaño de la venta */
-            text-align: center;
+        .container {
             position: relative;
+            width: 100%;
+            height: 100%;
         }
-        .venta-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            border-radius: 15px;
+        .iframe-container {
+            width: 100%;
+            height: 100%;
         }
-        .venta p, .venta ul {
-            margin: 10px 0; /* Ajuste de margen para pegar más el texto al logo */
-            color: black; /* Texto en color negro */
-            font-size: 16px;
-            text-align: left; /* Alinear texto a la izquierda */
-        }
-        .header-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: black; /* Texto en color negro */
-            margin-top: 10px; /* Ajuste de margen superior */
-        }
-        .header-images {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-        .header-images img {
-            width: 40%; /* Ajuste del tamaño de la imagen */
-            height: auto;
-            border-radius: 15px; /* Redondear bordes de la imagen */
-        }
-        .note {
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .botones {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .boton {
-            background-color: #003366; /* Color del botón de comprar suscripción (azul oscuro) */
-            color: white;
-            padding: 10px 20px;
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-        .boton:hover {
-            background-color: #002244; /* Azul oscuro más oscuro */
         }
         .close-button {
             position: absolute;
@@ -91,45 +38,22 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
             text-align: center;
-            line-height: 25px;
+            line-height: 30px;
             font-weight: bold;
-            z-index: 2;
+            font-size: 16px;
         }
     </style>
 </head>
-<body onload="openModal()">
-    <div class="overlay" id="overlay">
-        <div class="venta">
-            <button class="close-button" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
-            <div class="venta-content">
-                <div class="header-images">
-                    <img src="https://www.tuexperto.com/wp-content/uploads/2021/12/los-mejores-canales-de-telegram-para-encontrar-peliculas-y-series-1-1200x640.jpg" alt="Telegram Películas y Series">
-                </div>
-                <div class="header-title">🎬 ¡Únete al Canal de Telegram de Vende y Gana! 🎬</div>
-                <p>📲 Descarga las mejores películas y series que siempre estamos actualizando para ti.</p>
-                <p>🌟 <strong>Ventajas de nuestro canal:</strong></p>
-                <ul>
-                    <li>• Actualizaciones Constantes: Estamos siempre al día con las últimas y mejores películas y series.</li>
-                    <li>• Descargas Rápidas y Seguras: Obtén contenido de calidad de forma segura y sin complicaciones.</li>
-                    <li>• Contenido Exclusivo: Accede a contenido exclusivo disponible solo para nuestros miembros.</li>
-                    <li>• Comunidad Activa: Forma parte de una comunidad apasionada por el entretenimiento y comparte tus recomendaciones.</li>
-                </ul>
-                <p>📩 No esperes más! Únete ahora a nuestro canal de Telegram y disfruta de un mundo de entretenimiento sin límites.</p>
-                <div class="botones">
-                    <button class="boton" onclick="window.location.href='https://vendeygana2.github.io/AFILIARCANALTELEGRAM/'">COMPRAR SUSCRIPCIÓN</button>
-                </div>
-            </div>
+<body>
+    <div class="container">
+        <button class="close-button" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
+        <div class="iframe-container">
+            <iframe src="https://fluidforms.co/embed/form?id=67ac92c667af2da726c64a2f" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
-
-    <script>
-        function openModal() {
-            document.getElementById('overlay').style.display = 'flex';
-        }
-    </script>
 </body>
 </html>
