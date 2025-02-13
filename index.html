@@ -20,7 +20,7 @@
         }
         @keyframes blink-caret {
             from, to { border-color: transparent; }
-            50% { border-color: white; }
+            50% { border-color: orange; }
         }
         body, html {
             margin: 0;
@@ -31,7 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #000;
+            background-color: white; /* Fondo blanco */
         }
         .container {
             position: relative;
@@ -69,21 +69,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
         .modal {
-            background-color: black; /* Fondo negro */
+            background-color: white; /* Fondo blanco */
             border: 4px solid #ed7318; /* Marco naranja */
             border-radius: 15px;
             padding: 20px;
             max-width: 600px;
             text-align: center;
             font-size: 24px;
-            color: white; /* Texto en color blanco */
+            color: black; /* Texto en color negro */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
         }
@@ -158,9 +158,10 @@
             <div class="header-images">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="Max">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Disney_Plus_logo.svg" alt="Disney Plus">
-                <img src="https://theflujotv.com/wp-content/uploads/2024/12/cropped-flujo-tv-logo.png" alt="Flujo TV">
-                <img src="https://dhgf5mcbrms62.cloudfront.net/110979006/header-fcHJMd/IVsTzWZ-200x200.webp" alt="Panax Streaming">
+                <img src="https://static.wikia.nocookie.net/logopedia/images/e/e5/Disney%2B.svg/revision/latest/scale-to-width-down/284?cb=20190429084413" alt="Disney Plus">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/ViX_Logo.svg/1200px-ViX_Logo.svg.png" alt="ViX">
+                <img src="https://1000marcas.net/wp-content/uploads/2020/01/Canva-logo.png" alt="Canva">
+                <img src="https://logodownload.org/wp-content/uploads/2021/03/paramount-plus-logo-1.png" alt="Paramount+">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Crunchyroll.svg/1024px-Crunchyroll.svg.png" alt="Crunchyroll">
             </div>
         </div>
@@ -193,6 +194,7 @@
             }
         }
 
+        // Iniciar el efecto de máquina de escribir
         typeWriter();
     </script>
 </body>
