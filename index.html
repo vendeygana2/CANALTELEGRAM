@@ -3,199 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario en Pantalla Completa</title>
+    <title>Ventana de Formulario</title>
     <style>
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; } /* Baja intensidad del parpadeo */
-        }
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-            100% { transform: translateX(0); }
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: orange; }
-        }
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white; /* Fondo blanco */
         }
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        .iframe-container {
-            width: 100%;
-            height: 100%;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            text-align: center;
-            line-height: 30px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .overlay {
+
+        .popup {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            z-index: 1000;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
         }
-        .modal {
-            background-color: white; /* Fondo blanco */
-            border: 4px solid #ed7318; /* Marco naranja */
-            border-radius: 15px;
-            padding: 20px;
-            max-width: 600px;
-            text-align: center;
-            font-size: 24px;
-            color: black; /* Texto en color negro */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+
+        .popup iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
-        .modal p {
-            margin: 0;
-        }
-        .modal p span {
-            color: #ed7318; /* Color naranja para "VENDE Y GANA" */
-        }
-        .header-images {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-            gap: 10px; /* Espacio entre los logos */
-        }
-        .header-images img {
-            width: 92px; /* Tamaño incrementado en un 15% para todos los logos */
-            height: auto;
-            border-radius: 10px;
-            object-fit: contain; /* Asegura que los logos se vean bien */
-            animation: blink 2s infinite, wave 2s infinite; /* Ajustar velocidad del parpadeo */
-        }
-        .youtube-logo {
-            width: 198px; /* Tamaño más grande del logo de YouTube incrementado en un 65% */
-            margin-bottom: 20px; /* Espacio debajo del logo de YouTube */
-            animation: blink 2s infinite, wave 2s infinite; /* Ajustar velocidad del parpadeo */
-        }
-        .combina-text {
-            font-size: 20px;
-            margin-bottom: 20px; /* Espacio debajo del texto */
-            overflow: hidden;
-            border-right: .15em solid orange; /* Efecto caret */
-            white-space: nowrap;
-            margin: 0 auto; /* Fijar en el centro */
-            letter-spacing: .15em; /* Espacio entre letras */
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
-        .modal-close-button {
+
+        .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: red;
+            background-color: #f44336;
             color: white;
             border: none;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
             cursor: pointer;
-            text-align: center;
-            line-height: 30px;
-            font-weight: bold;
-            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close-btn:hover {
+            background-color: #d32f2f;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <button class="close-button" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
-        <div class="iframe-container">
-            <iframe src="https://fluidforms.co/embed/form?id=67ac92c667af2da726c64a2f" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="overlay" id="overlay">
-        <div class="modal">
-            <button class="modal-close-button" onclick="closeModal()">X</button>
-            <p>PAGA MENOS, GANA MÁS!</p>
-            <p>Combina como más te guste y con un precio incomparable que solo <span>VENDE Y GANA</span> te ofrece.</p>
-            <img src="https://cheveve.com/wp-content/uploads/2024/10/youtube-premium.png" alt="YouTube Premium" class="youtube-logo">
-            <p class="combina-text" id="combina-text">Combina con uno de estos:</p>
-            <div class="header-images">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg" alt="Max">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video">
-                <img src="https://1000marcas.net/wp-content/uploads/2021/04/Disney-Plus-Logo-2019-2024.png" alt="Disney Plus">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/ViX_Logo.svg/1200px-ViX_Logo.svg.png" alt="ViX">
-                <img src="https://1000marcas.net/wp-content/uploads/2020/01/Canva-logo.png" alt="Canva">
-                <img src="https://logodownload.org/wp-content/uploads/2021/03/paramount-plus-logo-1.png" alt="Paramount+">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Crunchyroll.svg/1024px-Crunchyroll.svg.png" alt="Crunchyroll">
-            </div>
-        </div>
+    <div class="popup" id="popup">
+        <iframe src="https://fluidforms.co/embed/form?id=67ad06349417159b1fee7419"></iframe>
+        <button class="close-btn" onclick="closePopup()">X</button>
     </div>
 
     <script>
-        // Función para cerrar la modal manualmente
-        function closeModal() {
-            document.getElementById('overlay').style.display = 'none';
+        function closePopup() {
+            // Cierra la ventana emergente y regresa a la ventana anterior
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+            history.back(); // Regresa a la ventana anterior
         }
-
-        // Efecto de sonido de máquina de escribir
-        function playTypingSound() {
-            var audio = new Audio('teclado.mp3'); // Cambia 'teclado.mp3' por la ruta de tu archivo de sonido
-            audio.play();
-        }
-
-        // Añadir sonido al efecto de máquina de escribir
-        const textElement = document.getElementById('combina-text');
-        let text = textElement.textContent;
-        textElement.textContent = '';
-        let index = 0;
-
-        function typeWriter() {
-            if (index < text.length) {
-                textElement.textContent += text.charAt(index);
-                playTypingSound(); // Reproducir sonido en cada letra
-                index++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        // Iniciar el efecto de máquina de escribir
-        typeWriter();
     </script>
 </body>
 </html>
